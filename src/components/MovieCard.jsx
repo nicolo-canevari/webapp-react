@@ -20,7 +20,11 @@ const MovieCard = ({ movie }) => {
                 <p><strong>Trama:</strong> {movie.abstract}</p>
 
                 {/* Bottone per la navigazione alla pagina MovieDetail */}
-                <Link to={`/movie/${movie.id}`}>Vai ai Dettagli</Link>
+                <Link to={`/movie/${movie.id}`}>
+
+                    <button>View Details</button>
+
+                </Link>
 
             </div>
 

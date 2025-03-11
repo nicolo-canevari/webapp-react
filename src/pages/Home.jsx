@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react';
 // Importo la funzione per chiamare l'API
 import { getAllMovies } from '../services/movieService';
+// Importo MovieList
+import MovieList from '../components/MovieList';
 
 // Funzione Home che rappresenta la pagina principale
 const Home = () => {
@@ -39,26 +41,8 @@ const Home = () => {
 
             <h1>Lista Film</h1>
 
-            <div>
-
-                {movies.map(movie => (
-
-                    <div key={movie.id}>
-
-                        {/* Mostro il titolo del film */}
-                        <h2>{movie.title}</h2>
-
-                        {/* Mostro l'immagine del film */}
-                        <img src={movie.image} alt={movie.title} />
-
-                        {/* Mostro la trama del film */}
-                        <p>{movie.abstract}</p>
-
-                    </div>
-
-                ))}
-
-            </div>
+            {/* Usa MovieList per visualizzare la lista dei film */}
+            <MovieList movies={movies} />
 
         </div>
 
