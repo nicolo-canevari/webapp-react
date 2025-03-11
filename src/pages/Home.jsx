@@ -2,7 +2,7 @@
 // Importo gli hook necessari da React
 import { useState, useEffect } from 'react';
 // Importo la funzione per chiamare l'API
-import { getAllMovies } from '../services/movieServce';
+import { getAllMovies } from '../services/movieService';
 
 // Funzione Home che rappresenta la pagina principale
 const Home = () => {
