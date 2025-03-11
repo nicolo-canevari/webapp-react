@@ -11,6 +11,7 @@ export const getAllMovies = async () => {
 
         // Chiamata per ottenere tutti i film
         const response = await axios.get(API_URL);
+
         // Restituisce i dati della risposta
         return response.data;
 
@@ -32,6 +33,7 @@ export const getMovieById = async (id) => {
 
         // Chiamata per ottenere il film con un id specifico
         const response = await axios.get(`${API_URL}/${id}`)
+
         // Restituisce i dati del film
         return response.data;
 
