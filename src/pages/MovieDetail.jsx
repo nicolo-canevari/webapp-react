@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 // Servizio per recuperare i dati dal BE
 import { getMovieById } from "../services/movieService";
 
@@ -14,6 +14,8 @@ const MovieDetail = () => {
     // Ottengo l'ID della rotta
     const { id } = useParams();
 
+    // Hook per navigare
+    const navigate = useNavigate();
 
     // Effettua la chiamata API per ottenere i dettagli del film
     useEffect(() => {
@@ -26,6 +28,14 @@ const MovieDetail = () => {
                 const data = await getMovieById(id);
                 console.log("Movie data:", data);
 
+                // Se il film non esiste, fa il redirect alla pagina NotFound
+                if (!data || data.length === 0) {
+
+                    // Redirige alla pagina NotFound
+                    navigate("/404", { replace: true });
+
+                }
+
                 // Risultato della query (un singolo film)
                 setMovie(data);
 
@@ -37,13 +47,16 @@ const MovieDetail = () => {
                 setError("Failed to fetch movie details.");
                 setLoading(false);
 
+                // Nel caso di errore, redirigi alla pagina di errore 404
+                navigate("/404", { replace: true });
+
             }
 
         };
 
         fetchMovie();
 
-    }, [id]);
+    }, [id, navigate]);
 
     // Se necessario mostro un messaggio di caricamento o errore
     if (loading) {
@@ -102,8 +115,8 @@ const MovieDetail = () => {
 
                             <li key={review.id}>
 
-                                <p><strong>{review.reviewer_name}</strong> (Rating: {review.rating})</p>
-                                <p>{review.review_text}</p>
+                                <p><strong>{review.name}</strong> (Rating: {review.vote})</p>
+                                <p>{review.text}</p>
 
                             </li>
 
