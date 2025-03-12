@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+// Servizio per recuperare i dati dal BE
 import { getMovieById } from "../services/movieService";
 
 
@@ -66,6 +67,13 @@ const MovieDetail = () => {
     return (
 
         <div className="movie-detail">
+
+            {/* Bottone per tornare alla Home */}
+            <Link to="/">
+
+                <button>Back to Home</button>
+
+            </Link>
 
             <h1>{movie.title}</h1>
 
