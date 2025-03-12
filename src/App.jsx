@@ -4,8 +4,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // Importo le pagine
 import Home from './pages/Home';
 import MovieDetail from './pages/MovieDetail';
+import NotFound from './pages/NotFound';
 // Importo il Layout principale
 import MainLayout from './layout/MainLayout';
+
 
 // Componente principale dell'app
 function App() {
@@ -26,6 +28,9 @@ function App() {
 
           {/* Rotta per la pagina del dettaglio del film */}
           <Route path="/movies/:id" element={<MovieDetail />} />
+
+          {/* Rotta di fallback per gestire tutte le pagine non trovate */}
+          <Route path="*" element={<NotFound />} />
 
         </Routes>
 
