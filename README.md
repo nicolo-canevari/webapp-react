@@ -17,3 +17,32 @@ La pagina di dettaglio di un singolo film (qui poi anche avrete le recensioni re
 
 BONUS
 Curare l’aspetto estetico della vostra applicazione
+
+
+<!-- Diagramma di Flusso -->
+
+Avvio App
+   |
+   v
+Carica MainLayout
+   |
+   v
+Carica Home (chiamata API per tutti i film)
+   |
+   v
+Ricevi lista film e mostra MovieList
+   |
+   v
+L'utente clicca "View Details" su un film
+   |
+   v
+Navigazione alla rotta /movies/:id
+   |
+   v
+Carica MovieDetail (chiamata API per dettagli del film)
+   |
+   v
+Ricevi dettagli e mostra nella pagina
+   |
+   v
+L'utente clicca "Back to Home" per tornare alla home

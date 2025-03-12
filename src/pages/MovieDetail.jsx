@@ -24,9 +24,10 @@ const MovieDetail = () => {
 
                 // Usa il servizio per ottenere i dati del film
                 const data = await getMovieById(id);
+                console.log("Movie data:", data);
 
                 // Risultato della query (un singolo film)
-                setMovie(data[0]);
+                setMovie(data);
 
                 // Una volta che i dati sono stati recuperati, segnalo che il caricamento è finito
                 setLoading(false);
@@ -87,8 +88,39 @@ const MovieDetail = () => {
 
             <p><strong>Abstract:</strong> {movie.abstract}</p>
 
-        </div>
+            {/* Se ci sono recensioni, visualizzale */}
+            {Array.isArray(movie.reviews) && movie.reviews.length > 0 ? (
 
+                <div className="reviews">
+
+                    <h3>Reviews:</h3>
+
+                    <ul>
+
+                        {/* Per ogni recensione creo un elemento nella lista */}
+                        {movie.reviews.map((review) => (
+
+                            <li key={review.id}>
+
+                                <p><strong>{review.reviewer_name}</strong> (Rating: {review.rating})</p>
+                                <p>{review.review_text}</p>
+
+                            </li>
+
+                        ))}
+
+                    </ul>
+
+                </div>
+
+            ) : (
+
+                // Nel caso in cui non ci fossero delle recensioni
+                <p>No reviews available for this movie.</p>
+
+            )}
+
+        </div>
     );
 
 }
