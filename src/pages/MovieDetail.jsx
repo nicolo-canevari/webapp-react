@@ -10,12 +10,11 @@ const MovieDetail = () => {
 
     // Stato per memorizzare i dettagli del film
     const [movie, setMovie] = useState(null);
+    const [reviews, setReviews] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-
     // Ottengo l'ID della rotta
     const { id } = useParams();
-
     // Hook per navigare
     const navigate = useNavigate();
 
@@ -41,6 +40,9 @@ const MovieDetail = () => {
                 // Risultato della query (un singolo film)
                 setMovie(data);
 
+                // Imposto le recensioni dal film (se esistono)
+                setReviews(data.reviews || []);
+
                 // Una volta che i dati sono stati recuperati, segnalo che il caricamento è finito
                 setLoading(false);
 
@@ -59,6 +61,13 @@ const MovieDetail = () => {
         fetchMovie();
 
     }, [id, navigate]);
+
+    // Funzione per aggiungere una recensione dinamicamente
+    const addReview = (newReview) => {
+
+        setReviews((prevReviews) => [...prevReviews, newReview]);
+
+    };
 
     // Se necessario mostro un messaggio di caricamento o errore
     if (loading) {
@@ -104,7 +113,7 @@ const MovieDetail = () => {
             <p><strong>Abstract:</strong> {movie.abstract}</p>
 
             {/* Se ci sono recensioni, visualizzale */}
-            {Array.isArray(movie.reviews) && movie.reviews.length > 0 ? (
+            {reviews.length > 0 ? (
 
                 <div className="reviews">
 
@@ -113,9 +122,9 @@ const MovieDetail = () => {
                     <ul>
 
                         {/* Per ogni recensione creo un elemento nella lista */}
-                        {movie.reviews.map((review) => (
+                        {reviews.map((review, index) => (
 
-                            <li key={review.id}>
+                            <li key={review.id || index}>
 
                                 <p><strong>{review.name}</strong> (Rating: {review.vote})</p>
                                 <p>{review.text}</p>
@@ -136,7 +145,7 @@ const MovieDetail = () => {
             )}
 
             {/* Aggiungo il componente ReviewForm passando l'ID del film */}
-            <ReviewForm movieId={id} />
+            <ReviewForm movieId={id} addReview={addReview} />
 
         </div>
 

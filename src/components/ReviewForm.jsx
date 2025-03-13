@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const ReviewForm = ({ movieId }) => {
+const ReviewForm = ({ movieId, addReview }) => {
     // Stato per gestire i valori del form
     const [name, setName] = useState('');
     const [vote, setVote] = useState(5);
@@ -18,11 +18,23 @@ const ReviewForm = ({ movieId }) => {
         // Previene il comportamento di default del form
         e.preventDefault();
 
+        // Resetto i messaggi prima di inviare una nuova recensione
+        setError('');
+        setSuccess('');
+
         // Controlla se tutti i campi obbligatori sono stati riempiti
         if (!name || !vote || !text) {
 
             // Imposto il messaggio di errore
             setError('Tutti i campi sono obbligatori!');
+            return;
+
+        }
+
+        // Assicuriamoci che il voto sia un numero valido tra 1 e 5
+        if (vote < 1 || vote > 5) {
+
+            setError('Il voto deve essere un numero tra 1 e 5!');
             return;
 
         }
@@ -46,7 +58,16 @@ const ReviewForm = ({ movieId }) => {
                 setName('');
                 setVote(5);
                 setText('');
-                setError('');
+
+                // Aggiungi la recensione appena inviata allo stato del componente padre
+                addReview({
+
+                    id: response.data.id,
+                    name,
+                    vote,
+                    text
+
+                });
 
             }
 
@@ -99,12 +120,19 @@ const ReviewForm = ({ movieId }) => {
                     <input
                         type="number"
                         id="vote"
-                        value={vote}
+                        value={vote || ''}
                         min="1"
                         max="5"
 
                         // Aggiorno il voto
-                        onChange={(e) => setVote(Number(e.target.value))}
+                        onChange={(e) => {
+
+                            const newVote = e.target.value;
+
+                            // Se è vuoto, lo mantengo vuoto, altrimenti lo convertiamo in un numero
+                            setVote(newVote === '' ? '' : Number(newVote));
+
+                        }}
                     />
                 </div>
 
