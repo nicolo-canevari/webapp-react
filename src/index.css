@@ -1,123 +1,220 @@
 * {
-
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
 
 /* Stile generale della pagina */
 body {
-
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
     color: #333;
-    padding: 20px;
-
 }
 
 /* Header */
 header {
-
-    background-color: #6200ea;
-    color: #fff;
-    padding: 10px;
+    background-image: url(https://boxofficebiz.it/wp-content/uploads/2024/09/cinema-colosseo-milano.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 4vw 1vw;
     text-align: center;
-
 }
 
 header h1 {
-
-    font-size: 24px;
-
+    font-size: 3.5vw;
+    margin: 0;
+    color: #0056b3;
+    text-shadow:
+        -1px -1px 0 yellow,
+        1px -1px 0 yellow,
+        -1px 1px 0 yellow,
+        1px 1px 0 yellow,
+        2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+/* Titolo principale */
 h1 {
-
-    margin: 20px 0;
+    margin: 2vw 0;
     text-align: start;
-
+    font-size: 4vw;
 }
 
-/* Layout principale */
+/* Layout principale (Home) */
 main {
-
-    padding: 20px;
-
+    padding: 2vw;
+    background-image: url(https://img.freepik.com/foto-gratuito/una-visione-dall-alto-della-bobina-di-film-videocamera-vintage-bobine-di-film-su-popcorn_23-2148188117.jpg?t=st=1741797606~exp=1741801206~hmac=e981d56f35303eb6be7cc48939d666e344da2599d41bdbe28b0e59d42d84972e&w=1380);
+    /* background-image: url(https://img.freepik.com/vettori-gratuito/insegna-al-neon-di-tempo-di-film_24908-55550.jpg?t=st=1741798294~exp=1741801894~hmac=492dc06a2f7cab2a09d8091ec74da2776a7498812c5a6e261c61dff148635fb6&w=740); */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 /* Lista film */
 .movie-list {
-
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-
+    grid-template-columns: repeat(auto-fill, minmax(20vw, 1fr));
+    gap: 2vw;
 }
 
 /* Card film */
 .movie-card {
-
     border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 10px;
-    background-color: #fff;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
+    border-radius: 1vw;
+    padding: 1vw;
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0.5vw 2vw rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, border-color 0.3s ease;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
     position: relative;
+}
 
+.movie-card:hover {
+    border-width: 0.2vw;
+    border-color: yellow;
+    transform: scale(1.06);
 }
 
 .movie-card img {
-
     width: 100%;
-    height: 300px;
+    height: 27vw;
     object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 10px;
-
+    border-radius: 1vw;
+    margin-bottom: 2vw;
 }
 
 .movie-card h2 {
-
-    font-size: 18px;
-
+    font-size: 2.5vw;
 }
 
 /* Testo della Card */
 .details {
-
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
-    margin-bottom: 40px;
+    gap: 1vw;
+    margin-top: 1vw;
+    margin-bottom: 3vw;
     flex-grow: 1;
-
 }
 
 /* Bottone dei "dettagli" */
 .details button {
-
     position: absolute;
-    bottom: 10px;
-    right: 10px;
-    padding: 8px 16px;
+    bottom: 1vw;
+    right: 2vw;
+    padding: 0.8vw 0.8vw;
     border: none;
-    border-radius: 5px;
+    border-radius: 0.5vw;
     background-color: #007bff;
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s;
-
 }
 
 .details button:hover {
-
     background-color: #0056b3;
+}
 
+
+/* Dettagli del film  (MovieDetail)*/
+.movie-detail {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    border: 0.2vw solid transparent;
+    padding: 2vw;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vw;
+    max-width: 600px;
+    margin: 0;
+    position: relative;
+    left: 2vw;
+    transition: transform 0.3s ease, border-width 0.3s ease, border-color 0.3s ease;
+}
+
+.movie-detail:hover {
+    border-width: 0.2vw;
+    border-color: orange;
+    transform: scale(1.01);
+}
+
+/* Titolo del film */
+.movie-detail h1 {
+    font-size: 3vw;
+    color: #6200ea;
+    margin-bottom: 1vw;
+}
+
+/* Immagine del film */
+.movie-detail .movie-image {
+    width: 100%;
+    height: auto;
+    /* Ridotto l'altezza */
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Informazioni del film */
+.movie-detail p {
+    font-size: 1.6vw;
+    /* Font più piccolo */
+    line-height: 1.6;
+}
+
+.movie-detail strong {
+    color: gray;
+}
+
+/* Sezione recensioni */
+.reviews {
+    margin-top: 2vw;
+}
+
+.reviews h3 {
+    font-size: 2.5vw;
+    color: #007bff;
+    margin-bottom: 1vw;
+}
+
+.reviews ul {
+    list-style-type: none;
+}
+
+.reviews li {
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    padding: 1.5vw;
+    margin-bottom: 1.5vw;
+    transition: background-color 0.3s;
+}
+
+.reviews li:hover {
+    background-color: #e0e0e0;
+}
+
+.reviews p {
+    font-size: 1.4vw;
+}
+
+/* Bottone "Back to Home" */
+.movie-detail button {
+    padding: 0.5vw 1vw;
+    background-color: #6200ea;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1vw;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: auto;
+    margin: 0 auto;
+}
+
+.movie-detail button:hover {
+    background-color: #4b00b4;
 }
