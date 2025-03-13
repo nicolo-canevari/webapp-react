@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 // Servizio per recuperare i dati dal BE
 import { getMovieById } from "../services/movieService";
+// Importo il componente ReviewForm
+import ReviewForm from '../components/ReviewForm';
 
 
 const MovieDetail = () => {
@@ -133,7 +135,11 @@ const MovieDetail = () => {
 
             )}
 
+            {/* Aggiungo il componente ReviewForm passando l'ID del film */}
+            <ReviewForm movieId={id} />
+
         </div>
+
     );
 
 }
