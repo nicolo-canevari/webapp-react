@@ -39,7 +39,7 @@ const Home = () => {
 
         <div>
 
-            <h1>Lista Film</h1>
+            <h1>Movie List</h1>
 
             {/* Usa MovieList per visualizzare la lista dei film */}
             <MovieList movies={movies} />

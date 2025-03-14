@@ -6,10 +6,13 @@
 
 /* Stile generale della pagina */
 body {
-    font-family: Arial, sans-serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     background-color: #f0f0f0;
     color: #333;
 }
+
+
+/* !MACRO-BLOCCHI */
 
 /* Header */
 header {
@@ -21,44 +24,43 @@ header {
     text-align: center;
 }
 
-header h1 {
-    font-size: 3.5vw;
-    margin: 0;
-    color: #0056b3;
-    text-shadow:
-        -1px -1px 0 yellow,
-        1px -1px 0 yellow,
-        -1px 1px 0 yellow,
-        1px 1px 0 yellow,
-        2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-/* Titolo principale */
-h1 {
-    margin: 2vw 0;
-    text-align: start;
-    font-size: 4vw;
-}
-
-/* Layout principale (Home) */
+/* Layout principale */
 main {
     padding: 2vw;
     background-image: url(https://img.freepik.com/foto-gratuito/una-visione-dall-alto-della-bobina-di-film-videocamera-vintage-bobine-di-film-su-popcorn_23-2148188117.jpg?t=st=1741797606~exp=1741801206~hmac=e981d56f35303eb6be7cc48939d666e344da2599d41bdbe28b0e59d42d84972e&w=1380);
-    /* background-image: url(https://img.freepik.com/vettori-gratuito/insegna-al-neon-di-tempo-di-film_24908-55550.jpg?t=st=1741798294~exp=1741801894~hmac=492dc06a2f7cab2a09d8091ec74da2776a7498812c5a6e261c61dff148635fb6&w=740); */
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
-/* Lista film */
+/* Pagina con la lista film (INDEX) */
 .movie-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(20vw, 1fr));
     gap: 2vw;
 }
 
-/* Card film */
+/* Pagina dettagli e recensioni del film :id (SHOW) */
+.movie-detail {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    border: 0.2vw solid transparent;
+    padding: 2vw;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    width: 80vw;
+    margin: 0 auto;
+    position: relative;
+    transition: transform 0.3s ease, border-width 0.3s ease, border-color 0.3s ease;
+}
+
+
+/* !REGOLE DEI CONTAINERS */
+
+/* Container: Card film */
 .movie-card {
     border: 1px solid #ccc;
     border-radius: 1vw;
@@ -73,25 +75,7 @@ main {
     position: relative;
 }
 
-.movie-card:hover {
-    border-width: 0.2vw;
-    border-color: yellow;
-    transform: scale(1.06);
-}
-
-.movie-card img {
-    width: 100%;
-    height: 27vw;
-    object-fit: cover;
-    border-radius: 1vw;
-    margin-bottom: 2vw;
-}
-
-.movie-card h2 {
-    font-size: 2.5vw;
-}
-
-/* Testo della Card */
+/* Container: Testo della Card */
 .details {
     display: flex;
     flex-direction: column;
@@ -101,7 +85,208 @@ main {
     flex-grow: 1;
 }
 
-/* Bottone dei "dettagli" */
+/* Container: movie-detail (locandina e informazioni film) */
+.card-movie-detail {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Container: dell'immagine (movie-detail) */
+.movie-image-container {
+    flex: 1;
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1vw;
+}
+
+/* Container: delle informazioni sul film (movie-detail) */
+.movie-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    justify-content: center;
+    margin-bottom: 16vw;
+}
+
+/* Container: recensioni (movie-detail) */
+.reviews {
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+/* Container: form reviews */
+.review-form {
+    background-color: #ffffff;
+    padding: 2vw;
+    border-radius: 10px;
+    border: 0.2vw solid transparent;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    margin-top: 2vw;
+    position: relative;
+    transition: transform 0.3s ease, border-width 0.3s ease, border-color 0.3s ease;
+}
+
+
+/* ! EFFETTI NELLA HOME E IN MOVIE-DETAIL */
+
+/* Effetto sulle card */
+.movie-card:hover {
+    border-width: 0.2vw;
+    border-color: yellow;
+    transform: scale(1.06);
+}
+
+/* Effetto del container movie-detail */
+.movie-detail:hover {
+    border-width: 0.2vw;
+    border-color: orange;
+    transform: scale(1.01);
+}
+
+
+/* ! IMMAGINI DELLA HOME E IN MOVIE-DETAIL  */
+
+/* Regole immagine delle card (home) */
+.movie-card img {
+    width: 100%;
+    height: 28vw;
+    object-fit: cover;
+    border-radius: 1vw;
+    margin-bottom: 2vw;
+}
+
+/* Regole immagine dela locandina in movie-detail */
+.movie-image-container img {
+    width: 25vw;
+    border-radius: 8px;
+}
+
+
+/* ! REGOLE TITOLI E TESTI  */
+
+/* Titolo Header */
+header h1 {
+    font-size: 3.5vw;
+    margin: 0;
+    color: white;
+    text-shadow:
+        -1px -1px 0 yellow,
+        1px -1px 0 yellow,
+        -1px 1px 0 yellow,
+        1px 1px 0 yellow,
+        2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Titolo Home */
+h1 {
+    margin: 2vw 0;
+    text-align: start;
+    font-size: 4vw;
+    color: blue;
+}
+
+/* Titolo del film nelle card (movie-card) */
+.movie-card h2 {
+    font-size: 2.5vw;
+}
+
+/* Titolo del film  (movie-detail) */
+.movie-detail h1 {
+    font-size: 3vw;
+    color: black;
+    margin-bottom: 1vw;
+    grid-column: span 2;
+}
+
+/* Titolo: Reviews (movie-detail) */
+.movie-image-container h3 {
+    font-size: 2vw;
+    color: green;
+    padding-top: 1vw;
+    position: relative;
+}
+
+/* Regole dei testi in movie-detail */
+.movie-detail p {
+    font-size: 1.6vw;
+    line-height: 1.6;
+}
+
+/* Director, Genre, Realise Year, Abstract (movie-info) */
+.movie-detail strong {
+    color: gray;
+}
+
+/* Testi nel container "reviews" */
+.reviews p {
+    font-size: 1.4vw;
+}
+
+
+/* ! REGOLE DEL FORM (movie-detail) */
+
+/* Titolo del form */
+.review-form h3 {
+    font-size: 2.5vw;
+    color: #007bff;
+}
+
+/* Etichette del form */
+.review-form label {
+    font-size: 1.1vw;
+    margin-top: 1vw;
+    display: inline-block;
+}
+
+/* Effetto etichette del form */
+.review-form:hover {
+    border-width: 0.2vw;
+    border-color: orange;
+    transform: scale(1.02);
+}
+
+/* Campi del form */
+.review-form input,
+.review-form textarea {
+    width: 100%;
+    padding: 1vw;
+    margin-top: 0.5vw;
+    border-radius: 5px;
+    border: 0.1vw solid #ccc;
+    font-size: 1.4vw;
+    background-color: #f9f9f9;
+    transition: border 0.3s;
+}
+
+/* Effetto sui campi del form */
+.review-form input:focus,
+.review-form textarea:focus {
+    border-color: #007bff;
+}
+
+/* Messaggi di errore o successo */
+.review-form .error {
+    color: red;
+    font-size: 1.5vw;
+    margin-top: 1vw;
+}
+
+.review-form .success {
+    color: green;
+    font-size: 1.5vw;
+    margin-top: 1vw;
+}
+
+
+/* ! REGOLE DEI BOTTONI */
+
+/* Bottone "View Details" (movie-list) */
 .details button {
     position: absolute;
     bottom: 1vw;
@@ -115,72 +300,52 @@ main {
     transition: background-color 0.3s;
 }
 
+/* Effetto sul  bottone "View Details" */
 .details button:hover {
     background-color: #0056b3;
 }
 
-
-/* Dettagli del film  (MovieDetail)*/
-.movie-detail {
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 10px;
-    border: 0.2vw solid transparent;
-    padding: 2vw;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    gap: 1.5vw;
-    max-width: 600px;
-    margin: 0;
-    position: relative;
-    left: 2vw;
-    transition: transform 0.3s ease, border-width 0.3s ease, border-color 0.3s ease;
+/* Bottone "Back to Home" (movie-detail) */
+.movie-detail button {
+    padding: 0.5vw 1vw;
+    background-color: #6200ea;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1vw;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: auto;
+    margin: 0 auto;
 }
 
-.movie-detail:hover {
-    border-width: 0.2vw;
-    border-color: orange;
-    transform: scale(1.01);
+/* Effetto bottone "Back to Home" */
+.movie-detail button:hover {
+    background-color: #4b00b4;
 }
 
-/* Titolo del film */
-.movie-detail h1 {
-    font-size: 3vw;
-    color: #6200ea;
-    margin-bottom: 1vw;
-}
-
-/* Immagine del film */
-.movie-detail .movie-image {
-    width: 100%;
-    height: auto;
-    /* Ridotto l'altezza */
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-/* Informazioni del film */
-.movie-detail p {
+/* Bottone per inviare la recensione (form) */
+.review-form button {
+    padding: 1vw 2vw;
+    background-color: #ffc107;
+    color: white;
+    border: none;
+    border-radius: 5px;
     font-size: 1.6vw;
-    /* Font più piccolo */
-    line-height: 1.6;
-}
-
-.movie-detail strong {
-    color: gray;
-}
-
-/* Sezione recensioni */
-.reviews {
+    cursor: pointer;
+    transition: background-color 0.3s;
     margin-top: 2vw;
 }
 
-.reviews h3 {
-    font-size: 2.5vw;
-    color: #007bff;
-    margin-bottom: 1vw;
+/* Effetto bottone del form */
+.review-form button:hover {
+    background-color: #e0a800;
 }
 
+
+/* ! REGOLE UL E LI  */
+
+/* Liste in movie-detail */
 .reviews ul {
     list-style-type: none;
 }
@@ -195,26 +360,4 @@ main {
 
 .reviews li:hover {
     background-color: #e0e0e0;
-}
-
-.reviews p {
-    font-size: 1.4vw;
-}
-
-/* Bottone "Back to Home" */
-.movie-detail button {
-    padding: 0.5vw 1vw;
-    background-color: #6200ea;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 1vw;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    width: auto;
-    margin: 0 auto;
-}
-
-.movie-detail button:hover {
-    background-color: #4b00b4;
 }

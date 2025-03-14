@@ -152,7 +152,7 @@ const ReviewForm = ({ movieId, addReview }) => {
                 </div>
 
                 {/* Bottone per inviare la recensione */}
-                <button type="submit">Invia recensione</button>
+                <button type="submit">Submit</button>
 
             </form>
 

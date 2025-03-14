@@ -100,24 +100,36 @@ const MovieDetail = () => {
 
             </Link>
 
-            <h1>{movie.title}</h1>
+            <div className="card-movie-detail">
 
-            <img src={movie.image} alt={movie.title} className="movie-image" />
+                {/* Container img e titolo */}
+                <div className="movie-image-container">
 
-            <p><strong>Director:</strong> {movie.director}</p>
+                    <h1>{movie.title}</h1>
+                    <img src={movie.image} alt={movie.title} className="movie-image" />
+                    <h3>Reviews:</h3>
 
-            <p><strong>Genre:</strong> {movie.genre}</p>
+                </div>
 
-            <p><strong>Release Year:</strong> {movie.release_year}</p>
+                {/* Container descrizione del film */}
+                <div className="movie-info">
 
-            <p><strong>Abstract:</strong> {movie.abstract}</p>
+                    <p><strong>Director:</strong> {movie.director}</p>
+
+                    <p><strong>Genre:</strong> {movie.genre}</p>
+
+                    <p><strong>Release Year:</strong> {movie.release_year}</p>
+
+                    <p><strong>Abstract:</strong> {movie.abstract}</p>
+
+                </div>
+
+            </div>
 
             {/* Se ci sono recensioni, visualizzale */}
             {reviews.length > 0 ? (
 
                 <div className="reviews">
-
-                    <h3>Reviews:</h3>
 
                     <ul>
 
