@@ -44,12 +44,13 @@ const ReviewForm = ({ movieId, addReview }) => {
             // Effettuo la richiesta per inviare la recensione
             const response = await axios.post(`http://localhost:3000/api/movies/${movieId}/reviews`, {
 
-                movie_id: movieId,
                 name: name,
                 vote: vote,
-                text: text,
+                text: text
 
             });
+
+            console.log("Response from API:", response);
 
             // Se la risposta è positiva, mostra il messaggio di successo
             if (response.status === 201) {
@@ -63,9 +64,9 @@ const ReviewForm = ({ movieId, addReview }) => {
                 addReview({
 
                     id: response.data.id,
-                    name,
-                    vote,
-                    text
+                    name: response.data.name,
+                    vote: response.data.vote,
+                    text: response.data.text
 
                 });
 
@@ -75,7 +76,7 @@ const ReviewForm = ({ movieId, addReview }) => {
 
             // Gestisce gli errori
             setError('Errore durante l\'invio della recensione');
-            console.error(err);
+            console.error("Errore API:", err);
 
         }
 

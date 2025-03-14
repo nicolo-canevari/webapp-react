@@ -67,7 +67,12 @@ const MovieDetail = () => {
     // Funzione per aggiungere una recensione dinamicamente
     const addReview = (newReview) => {
 
-        setReviews((prevReviews) => [...prevReviews, newReview]);
+        console.log("New review added:", newReview);
+        setReviews((prevReviews) => {
+            const updatedReviews = [...prevReviews, newReview];
+            console.log("Updated reviews:", updatedReviews);
+            return updatedReviews;
+        });
 
     };
 
@@ -165,6 +170,9 @@ const MovieDetail = () => {
                                     </div>
 
                                 </div>
+
+                                {/* Aggiungi il testo della recensione */}
+                                <p>{review.text}</p>
 
                             </li>
 
