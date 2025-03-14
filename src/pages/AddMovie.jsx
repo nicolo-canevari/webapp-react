@@ -20,20 +20,31 @@ const AddMovie = () => {
 
         e.preventDefault();
 
-        // Creo un oggetto con i dati del nuovo film da inviare al backend
-        const newMovie = {
+        // Creo un oggetto FormData per inviare dati form e file
+        const formData = new FormData();
+        formData.append('title', title);
+        formData.append('director', director);
+        formData.append('genre', genre);
+        formData.append('release_year', releaseYear);
+        formData.append('abstract', abstract);
 
-            title,
-            director,
-            genre,
-            release_year: releaseYear,
-            image,
-            abstract,
+        if (image) {
 
-        };
+            // Aggiungi il file immagine
+            formData.append('image', image);
 
+        }
         // Faccio una richiesta POST al backend per salvare il nuovo film
-        axios.post('http://localhost:3000/api/movies', newMovie)
+        axios.post('http://localhost:3000/api/movies', formData, {
+
+            // Header per inviare file
+            headers: {
+
+                'Content-Type': 'multipart/form-data',
+
+            },
+
+        })
 
             .then((response) => {
 
@@ -53,6 +64,9 @@ const AddMovie = () => {
     return (
 
         <div>
+
+            {/* Bottone per tornare alla Home */}
+            <button onClick={() => navigate('/')}>Torna alla Home</button>
 
             <h2>Aggiungi un nuovo film</h2>
 
@@ -119,9 +133,8 @@ const AddMovie = () => {
                     <label>Image URL:</label>
 
                     <input
-                        type="text"
-                        value={image}
-                        onChange={(e) => setImage(e.target.value)}
+                        type="file"
+                        onChange={(e) => setImage(e.target.files[0])}
                     />
 
                 </div>

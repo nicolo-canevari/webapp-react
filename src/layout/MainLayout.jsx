@@ -9,7 +9,7 @@ const MainLayout = ({ children }) => {
     const location = useLocation();
 
     // Verifica se la rotta è una pagina MovieDetail (con ID dinamico) o la pagina NotFound 404
-    const hideHeader = location.pathname.startsWith('/movies/') || location.pathname === '/404';
+    const hideHeader = location.pathname.startsWith('/movies/') || location.pathname === '/404' || location.pathname === '/add-movie';
 
 
 
