@@ -63,7 +63,7 @@ const AddMovie = () => {
 
     return (
 
-        <div>
+        <div className="add-movie-page">
 
             {/* Bottone per tornare alla Home */}
             <button onClick={() => navigate('/')}>Back to Home</button>
@@ -130,7 +130,7 @@ const AddMovie = () => {
                 {/* Campo per l'URL dell'immagine */}
                 <div>
 
-                    <label>Image URL:</label>
+                    <label>Image:</label>
 
                     <input
                         type="file"

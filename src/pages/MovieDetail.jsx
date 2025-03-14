@@ -4,6 +4,8 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { getMovieById } from "../services/movieService";
 // Importo il componente ReviewForm
 import ReviewForm from '../components/ReviewForm';
+// Importo le icone di stella
+import { FaStar, FaRegStar } from "react-icons/fa";
 
 
 const MovieDetail = () => {
@@ -78,7 +80,7 @@ const MovieDetail = () => {
 
     if (error) {
 
-        return <div>{error}</div>;
+        return <div>Sorry, we couldn't load the movie details. Please try again later.</div>;
 
     }
 
@@ -138,8 +140,31 @@ const MovieDetail = () => {
 
                             <li key={review.id || index}>
 
-                                <p><strong>{review.name}</strong> (Rating: {review.vote})</p>
-                                <p>{review.text}</p>
+                                {/* Visualizzazione delle stelle affianco al nome dell'utente */}
+                                <div style={{ display: 'flex', alignItems: 'center' }}>
+
+                                    <p><strong>{review.name}</strong></p>
+
+
+                                    <div className="review-rating">
+
+                                        {Array.from({ length: 5 }, (v, i) => (
+
+                                            i < review.vote ? (
+
+                                                <FaStar key={i} className="filled-star" />
+
+                                            ) : (
+
+                                                <FaRegStar key={i} className="empty-star" />
+
+                                            )
+
+                                        ))}
+
+                                    </div>
+
+                                </div>
 
                             </li>
 

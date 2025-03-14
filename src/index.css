@@ -9,6 +9,11 @@ body {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     background-color: #f0f0f0;
     color: #333;
+    background-image: url(https://img.freepik.com/foto-gratuito/una-visione-dall-alto-della-bobina-di-film-videocamera-vintage-bobine-di-film-su-popcorn_23-2148188117.jpg?t=st=1741797606~exp=1741801206~hmac=e981d56f35303eb6be7cc48939d666e344da2599d41bdbe28b0e59d42d84972e&w=1380);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 
@@ -16,10 +21,6 @@ body {
 
 /* Header */
 header {
-    background-image: url(https://boxofficebiz.it/wp-content/uploads/2024/09/cinema-colosseo-milano.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     padding: 4vw 1vw;
     text-align: center;
 }
@@ -27,11 +28,6 @@ header {
 /* Layout principale */
 main {
     padding: 2vw;
-    background-image: url(https://img.freepik.com/foto-gratuito/una-visione-dall-alto-della-bobina-di-film-videocamera-vintage-bobine-di-film-su-popcorn_23-2148188117.jpg?t=st=1741797606~exp=1741801206~hmac=e981d56f35303eb6be7cc48939d666e344da2599d41bdbe28b0e59d42d84972e&w=1380);
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
 }
 
 /* Pagina con la lista film (INDEX) */
@@ -81,7 +77,7 @@ main {
     flex-direction: column;
     gap: 1vw;
     margin-top: 1vw;
-    margin-bottom: 3vw;
+    margin-bottom: 2vw;
     flex-grow: 1;
 }
 
@@ -138,14 +134,14 @@ main {
 /* Effetto sulle card */
 .movie-card:hover {
     border-width: 0.2vw;
-    border-color: yellow;
+    border-color: #ffb500;
     transform: scale(1.06);
 }
 
 /* Effetto del container movie-detail */
 .movie-detail:hover {
     border-width: 0.2vw;
-    border-color: orange;
+    border-color: #ffb500;
     transform: scale(1.01);
 }
 
@@ -155,7 +151,7 @@ main {
 /* Regole immagine delle card (home) */
 .movie-card img {
     width: 100%;
-    height: 28vw;
+    height: 29vw;
     object-fit: cover;
     border-radius: 1vw;
     margin-bottom: 2vw;
@@ -188,7 +184,7 @@ h1 {
     margin: 2vw 0;
     text-align: start;
     font-size: 4vw;
-    color: blue;
+    color: grey;
 }
 
 /* Titolo del film nelle card (movie-card) */
@@ -286,6 +282,28 @@ h1 {
 
 /* ! REGOLE DEI BOTTONI */
 
+/* Bottone "Add Movie" */
+.add-movie-btn {
+    position: fixed;
+    top: 2vw;
+    left: 2vw;
+    padding: 1vw 2vw;
+    background-color: rgba(40, 167, 69, 0.8);
+    color: white;
+    font-size: 1.2vw;
+    border: none;
+    border-radius: 0.5vw;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s ease;
+    z-index: 1000;
+}
+
+/* Effetto hover sul bottone "Add Movie" */
+.add-movie-btn:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
 /* Bottone "View Details" (movie-list) */
 .details button {
     position: absolute;
@@ -362,6 +380,28 @@ h1 {
     background-color: #e0e0e0;
 }
 
+/* ! STILE DELLE STELLE NELLE REVIEWS  */
+/* Stile per le stelle di valutazione */
+.review-rating {
+    display: flex;
+    align-items: center;
+    margin-left: 1vw;
+}
+
+/* Stella piena */
+.filled-star {
+    color: gold;
+    font-size: 1.5rem;
+    margin-right: 5px;
+}
+
+/* Stella vuota */
+.empty-star {
+    color: lightgray;
+    font-size: 1.5rem;
+    margin-right: 5px;
+}
+
 
 /* ! REGOLE DELLA PAGINA NOT FOUND 404 */
 
@@ -412,4 +452,124 @@ h1 {
 .not-found button:hover {
     background-color: #4b00b4;
     transform: scale(1.05);
+}
+
+/* ! REGOLE PAGINA AGGIUNTA FILM (AddMovie) */
+
+/* Contenitore principale della pagina */
+.add-movie-page {
+    padding: 2vw;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin: 0 auto;
+    width: 80vw;
+    max-width: 1000px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    backdrop-filter: blur(8px);
+}
+
+/* Titolo della pagina */
+.add-movie-page h2 {
+    text-align: center;
+    font-size: 3vw;
+    color: rgb(16, 192, 16);
+    margin-bottom: 2vw;
+}
+
+/* Bottone "Back to Home" */
+.add-movie-page button {
+    padding: 1vw 2vw;
+    background-color: #007bff;
+    color: white;
+    font-size: 1.5vw;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    align-self: flex-start;
+    margin-bottom: 0.5vw;
+}
+
+/* Effetto hover su "Back to Home" */
+.add-movie-page button:hover {
+    background-color: #0056b3;
+}
+
+/* Form per aggiungere il film */
+.add-movie-page form {
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+}
+
+/* Stile delle label */
+.add-movie-page label {
+    font-size: 1.5vw;
+    color: #333;
+}
+
+/* Stile per i campi di input e textarea */
+.add-movie-page input,
+.add-movie-page textarea {
+    width: 100%;
+    padding: 1vw;
+    font-size: 1.4vw;
+    border: 0.1vw solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+/* Effetto al focus sui campi input */
+.add-movie-page input:focus,
+.add-movie-page textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Stile per il campo di input file (immagine) */
+.add-movie-page input[type="file"] {
+    padding: 1vw;
+    font-size: 1.4vw;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+/* Stile per il bottone di submit (Add Movie) */
+.add-movie-page button[type="submit"] {
+    padding: 1vw 2vw;
+    background-color: rgba(40, 167, 69, 0.8);
+    color: white;
+    font-size: 1.5vw;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s ease;
+    margin-top: 2vw;
+}
+
+/* Effetto hover sul bottone "Add Movie" */
+.add-movie-page button[type="submit"]:hover {
+    background-color: rgba(40, 167, 69, 1);
+    transform: scale(1.05);
+}
+
+/* Stile per la textarea (abstract) */
+.add-movie-page textarea {
+    resize: vertical;
+    height: 10vw;
+}
+
+/* Effetto hover sul bottone di submit */
+.add-movie-page button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+/* Aggiungi un po' di distanza ai bordi dei campi */
+.add-movie-page div {
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
 }
