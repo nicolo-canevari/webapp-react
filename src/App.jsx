@@ -1,6 +1,6 @@
 // Importo i componenti e le librerie
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 // Importo le pagine
 import Home from './pages/Home';
 import MovieDetail from './pages/MovieDetail';
@@ -11,6 +11,7 @@ import MainLayout from './layout/MainLayout';
 
 // Componente principale dell'app
 function App() {
+
 
   return (
 
