@@ -48,6 +48,8 @@ const AddMovie = () => {
 
             .then((response) => {
 
+                console.log('Film aggiunto con successo:', response.data);
+
                 // Dopo il salvataggio, reindirizza alla home
                 navigate('/');
 

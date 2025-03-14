@@ -11,7 +11,9 @@ const NotFound = () => {
             <p>The page you are looking for doesn't exist or has been moved.</p>
 
             <Link to="/">
+
                 <button>Back to Home</button>
+
             </Link>
 
         </div>

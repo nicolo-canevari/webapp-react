@@ -54,7 +54,7 @@ main {
 }
 
 
-/* !REGOLE DEI CONTAINERS */
+/* !REGOLE DEI CONTAINERS (di Home e MovieDetail) */
 
 /* Container: Card film */
 .movie-card {
@@ -332,9 +332,8 @@ h1 {
     border-radius: 5px;
     font-size: 1vw;
     cursor: pointer;
+    width: 10vw;
     transition: background-color 0.3s;
-    width: auto;
-    margin: 0 auto;
 }
 
 /* Effetto bottone "Back to Home" */
@@ -362,6 +361,11 @@ h1 {
 
 
 /* ! REGOLE UL E LI  */
+
+/* Lista Navbar */
+nav ul {
+    list-style-type: none;
+}
 
 /* Liste in movie-detail */
 .reviews ul {

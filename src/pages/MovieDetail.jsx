@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 // Servizio per recuperare i dati dal BE
 import { getMovieById } from "../services/movieService";
 // Importo il componente ReviewForm
@@ -68,10 +68,15 @@ const MovieDetail = () => {
     const addReview = (newReview) => {
 
         console.log("New review added:", newReview);
+
+        // Aggiorno lo stato delle recensioni
         setReviews((prevReviews) => {
+
             const updatedReviews = [...prevReviews, newReview];
             console.log("Updated reviews:", updatedReviews);
+
             return updatedReviews;
+
         });
 
     };
@@ -96,16 +101,20 @@ const MovieDetail = () => {
 
     }
 
+    // Funzione per tornare alla home
+    const handleBackToHome = () => {
+
+        // Naviga alla home
+        navigate('/');
+
+    };
+
     return (
 
         <div className="movie-detail">
 
             {/* Bottone per tornare alla Home */}
-            <Link to="/">
-
-                <button>Back to Home</button>
-
-            </Link>
+            <button onClick={handleBackToHome}>Back to Home</button>
 
             <div className="card-movie-detail">
 
@@ -145,7 +154,7 @@ const MovieDetail = () => {
 
                             <li key={review.id || index}>
 
-                                {/* Visualizzazione delle stelle affianco al nome dell'utente */}
+                                {/* Visualizzazione delle stelle (da 1 a 5) a fianco al nome dell'utente */}
                                 <div style={{ display: 'flex', alignItems: 'center' }}>
 
                                     <p><strong>{review.name}</strong></p>
