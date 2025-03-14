@@ -22,7 +22,7 @@ const Navbar = () => {
                 {/* Bottone che naviga alla pagina Add Movie */}
                 <li>
 
-                    <button onClick={handleNavigateToAddMovie}>Add Movie</button>
+                    <button className="add-movie-btn" onClick={handleNavigateToAddMovie}>Add Movie</button>
 
                 </li>
 

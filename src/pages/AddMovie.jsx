@@ -66,7 +66,7 @@ const AddMovie = () => {
         <div>
 
             {/* Bottone per tornare alla Home */}
-            <button onClick={() => navigate('/')}>Torna alla Home</button>
+            <button onClick={() => navigate('/')}>Back to Home</button>
 
             <h2>Aggiungi un nuovo film</h2>
 
